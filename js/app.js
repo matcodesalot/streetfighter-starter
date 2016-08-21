@@ -11,11 +11,15 @@ $(document).ready(function() {
 	})
 	.mousedown(function() {
 		//console.log("the mouse has been clicked inside the .ryu div");
+		playHadouken();
 		$(".ryu-ready").hide();
 		$(".ryu-throwing").show();
-		$(".hadouken").show();
-		//play hadouken sound
-		//animate hadouken to the right of the screen
+		$(".hadouken").finish().show().animate(
+		{"left": "1080px"}, 500,
+		function() {
+			$(".hadouken").hide();
+			$(".hadouken").css("left", "540px");
+		}); //this ); closes off the .animate
 	})
 	.mouseup(function() {
 		//console.log("mouseup");
@@ -23,3 +27,9 @@ $(document).ready(function() {
 		$(".ryu-throwing").hide();
 	})
 });
+
+function playHadouken() {
+	$("#hadouken-sound")[0].volume = 0.5;
+	$("#hadouken-sound")[0].load();
+	$("#hadouken-sound")[0].play();
+}
