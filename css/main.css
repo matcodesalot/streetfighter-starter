@@ -1,7 +1,7 @@
-*
+/**
 {
 	outline: red 1px solid;
-}
+}*/
 
 body
 {
@@ -68,5 +68,4 @@ body
 	z-index: 10;
 	top: 175px;
     left: 540px;
-    float: left;
 }
